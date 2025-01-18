@@ -1,0 +1,106 @@
+/* Custom Properties */
+:root {
+    --primary-gradient: linear-gradient(120deg, #00c28a 0%, #00a2f4 100%);
+    --whatsapp-green: #25D366;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+}
+
+/* Custom Fonts */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background Gradients */
+.gradient-background {
+    background: var(--primary-gradient);
+}
+
+.product-gradient {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+}
+
+/* Card Animations */
+.card-hover {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Images - Optimized for Ultra Basic template
+   Logo: 240x240px (1:1)
+   Featured: 1200x800px (3:2)
+   Products: 800x600px (4:3)
+*/
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.05);
+    background-color: var(--whatsapp-green);
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .featured-product img {
+        height: 300px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .whatsapp-button,
+    .floating-whatsapp {
+        display: none;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .card-hover,
+    .product-image,
+    .whatsapp-button {
+        transition: none;
+    }
+}
+
+/* Focus States */
+button:focus,
+a:focus {
+    outline: 2px solid #00a2f4;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (forced-colors: active) {
+    .card-hover {
+        border: 1px solid ButtonText;
+    }
+}
